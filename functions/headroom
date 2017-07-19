@@ -1,0 +1,36 @@
+<?php
+/**
+ * The fixed header for our theme
+ *
+ * Give your pages some headroom. Hide your header until you need it.
+ *
+ * @link http://wicky.nillia.ms/headroom.js/
+ *
+ * @link https://codepen.io/WickyNilliams/pen/AFsKB
+ *
+ * @package Titanium
+ */
+?>
+
+<style type="text/css">
+.headroom {
+  will-change: transform;
+  transition: all 0.25s ease-in-out;
+}
+.headroom--pinned { transform: translateY(0) }
+.headroom--unpinned { transform: translateY(-100%) }
+</style>
+
+<?php // add in the footer only ?>
+<script src="http://wicky.nillia.ms/headroom.js/assets/scripts/main.js?v=2"></script>
+<script type="text/javascript">
+  (function() {
+    var header = document.querySelector("#header");
+    if(window.location.hash) { header.classList.add("headroom--unpinned"); }
+    var headroom = new Headroom(header, { tolerance: { down : 10, up : 20 }, offset : 205 } );
+    headroom.init();
+  }());
+</script>
+
+</body>
+</html>
